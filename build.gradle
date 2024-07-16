@@ -46,4 +46,3 @@ def gitBranch() {
     return stdout.toString().trim()
 }
 
-}
