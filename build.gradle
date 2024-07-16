@@ -46,12 +46,4 @@ def gitBranch() {
     return stdout.toString().trim()
 }
 
-tasks.register('uploadFiles', UploadFilesTask) {
-    mcVersion.set project.ext.minecraftVersion
-    version.set "${project.version}-${project.ext.gitHash}"
-    snapshot.set project.version.toString().endsWith("-SNAPSHOT")
-    gitHash.set project.ext.gitHash
-    branch.set gitBranch()
-    inputs.files tasks.collect.outputs.files
-    dependsOn(tasks.collect)
 }
